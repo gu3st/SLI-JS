@@ -1,0 +1,16 @@
+{
+    "name": "SLI-JS",
+    "description": "SLI-M Interface in Node.JS",
+    "version": "0.0.0",
+    "author": {
+        "name": "Dustin Dawes",
+        "email": "gu3st@dustindawes.com",
+        "url": "https://github.com/gu3st"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/gu3st/SLI-JS.git"
+    },
+    "license": "WTFPL",
+    "dependencies": { "node-hid" : ">=0.1.1"}
+}
