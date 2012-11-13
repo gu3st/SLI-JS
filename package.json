@@ -12,5 +12,8 @@
         "url": "git://github.com/gu3st/SLI-JS.git"
     },
     "license": "WTFPL",
-    "dependencies": { "node-hid" : ">=0.1.1"}
+    "dependencies": { "node-hid" : ">=0.1.1"},
+    "bin" : {
+	    "slijs" : "./bin/sli-js"
+    }
 }
