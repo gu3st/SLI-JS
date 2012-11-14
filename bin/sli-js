@@ -1,2 +1,2 @@
 #!/bin/bash
-node ../src/sli.js
+node src/sli.js

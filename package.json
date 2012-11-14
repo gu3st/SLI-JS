@@ -12,7 +12,11 @@
         "url": "git://github.com/gu3st/SLI-JS.git"
     },
     "license": "WTFPL",
-    "dependencies": { "node-hid" : ">=0.1.1"},
+    "dependencies": { 
+	"node-hid" : ">=0.1.1",
+	"express" : ">=3.0",
+	"socket.io" : ">=0.9.11"
+    },
     "bin" : {
 	    "slijs" : "./bin/sli-js"
     }

@@ -1,0 +1,222 @@
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/engineer.js"></script>
+    <script type="text/javascript">
+        e.emitter(window).on('load',function(){
+            var socket = io.connect('http://localhost');
+            var sliForm = document.getElementsByName('slim')[0];
+            for(var i = 0; i< sliForm.length; i++){
+                (function(){
+                    var currentInput = sliForm[i];
+                    e.emitter(currentInput).on('change',function(){
+                        var data = compileFormData()
+                        socket.emit('handle', data);
+                    });
+
+                    function compileFormData(){
+                        var i, curElm, returnData;
+                        returnData = {};
+                        if(typeof sliForm === 'object'){
+                            //I can loop it.
+                            for(i=0;i<sliForm.length;i++){
+                                curElm = sliForm[i];
+                                if(curElm.name === '' || (curElm.type === "radio" && curElm.checked === false) || (curElm.type === "checkbox" && curElm.checked === false)){
+                                    continue;
+                                }
+                                returnData[curElm.name] = curElm.value;
+                            }
+                        }
+
+                        return returnData;
+                    }
+                })();
+            }
+        });
+    </script>
+
+    <style type="text/css">
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .wrapper{
+            position: relative;
+        }
+        input[type=checkbox]{
+            height: 20px;
+            width: 20px;
+            -webkit-appearance: none;
+            background: white;;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        input[type=checkbox]:checked{
+            background: #555;
+        }
+        input[name=led0]{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        input[name=led1]{
+            position: absolute;
+            top: 10px;
+            left: 55px;
+        }
+        input[name=led2]{
+            position: absolute;
+            top: 10px;
+            left: 98px;
+        }
+        input[name=led3]{
+            position: absolute;
+            top: 10px;
+            left: 140px;
+        }
+        input[name=led4]{
+            position: absolute;
+            top: 10px;
+            left: 184px;
+        }
+        input[name=led5]{
+            position: absolute;
+            top: 10px;
+            left: 228px;
+        }
+        input[name=led6]{
+             position: absolute;
+             top: 10px;
+             left: 270px;
+        }
+        input[name=led7]{
+            position: absolute;
+            top: 10px;
+            left: 315px;
+        }
+        input[name=led8]{
+            position: absolute;
+            top: 10px;
+            left: 358px;
+        }
+        input[name=led9]{
+            position: absolute;
+            top: 10px;
+            left: 402px;
+        }
+        input[name=led10]{
+            position: absolute;
+            top: 10px;
+            left: 447px;
+        }
+        input[name=led11]{
+            position: absolute;
+            top: 10px;
+            left: 490px;
+        }
+        input[name=led12]{
+            position: absolute;
+            top: 10px;
+            left: 535px;
+        }
+
+        input[name=led12]{
+            position: absolute;
+            top: 10px;
+            left: 535px;
+        }
+
+        input[name=ledBlueLeft]{
+            position: absolute;
+            left: 97px;
+            top: 89px;
+        }
+        input[name=ledBlueRight]{
+            position: absolute;
+            left: 446px;
+            top: 89px;
+        }
+        input[name=ledRedLeft]{
+            position: absolute;
+            left: 133px;
+            top: 110px;
+        }
+        input[name=ledRedRight]{
+            position: absolute;
+            left: 408px;
+            top: 110px;
+        }
+        input[name=ledYellowLeft]{
+            position: absolute;
+            left: 133px;
+            top: 67px;
+        }
+        input[name=ledYellowRight]{
+            position: absolute;
+            left: 408px;
+            top: 67px;
+
+        }
+        select{
+            position: absolute;
+            left: 244px;
+            top: 87px;
+            font-size: 30px;
+            width: 75px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <form name="slim">
+        <img src="/sli-m.png" />
+        <input type="checkbox" name="led0" value="1">
+        <input type="checkbox" name="led1" value="1">
+        <input type="checkbox" name="led2" value="1">
+        <input type="checkbox" name="led3" value="1">
+        <input type="checkbox" name="led4" value="1">
+        <input type="checkbox" name="led5" value="1">
+        <input type="checkbox" name="led6" value="1">
+        <input type="checkbox" name="led7" value="1">
+        <input type="checkbox" name="led8" value="1">
+        <input type="checkbox" name="led9" value="1">
+        <input type="checkbox" name="led10" value="1">
+        <input type="checkbox" name="led11" value="1">
+        <input type="checkbox" name="led12" value="1">
+
+        <input type="checkbox" name="ledBlueLeft">
+        <input type="checkbox" name="ledRedLeft">
+        <input type="checkbox" name="ledYellowLeft">
+
+        <input type="checkbox" name="ledBlueRight">
+        <input type="checkbox" name="ledRedRight">
+        <input type="checkbox" name="ledYellowRight">
+
+        <select name="gear">
+            <option value="blank">Blank</option>
+            <option value="-">-</option>
+            <option value="r">r</option>
+            <option value="n">n</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+        </select>
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
