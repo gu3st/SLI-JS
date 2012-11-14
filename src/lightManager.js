@@ -102,19 +102,17 @@ function LEDManager(){
 		var value = (_value ? 1 : 0);
 		leds[parseInt(_index)] = value; 				
 	}
-	function fillLedsTo(position){
-		if(position >= 1 && position <= 13){
-			for(var x = 0; x <= position; x++){
-				leds[x] = 1;
-			}
-		}
-		else if(position > 13){
-			for(var x = 0; x < 13; x++){
-				leds[x] = 1;
-			}
-		}
-		
-	}
+    function fillLedsTo(position){
+
+        for(var x = 0; x < 13; x++){
+            if(x < position){
+                leds[x] = 1;
+            }
+            else{
+                leds[x] = 0;
+            }
+        }
+    }
 	function setred1(_bool){
 		if(_bool){
 			red1 = 1;
